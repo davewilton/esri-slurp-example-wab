@@ -59,7 +59,7 @@ Global functions:
 var
   //apiUrl: String
   //    the URL of the ArcGIS API for JavaScript, you can change it to point to your own API.
-  apiUrl = 'arcgis-js-api',
+  apiUrl = './',
 
   //weinreUrl: String
   //    weinre is a tool which can help debug the app on mobile devices.

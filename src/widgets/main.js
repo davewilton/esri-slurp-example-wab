@@ -1,1 +1,1 @@
-define(['./AttributeTable/Widget'],function(){});
+define([],function(){});

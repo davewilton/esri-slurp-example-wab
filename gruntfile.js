@@ -65,29 +65,47 @@ module.exports = function (grunt) {
               pattern: /isDebug: *true,/,
               replacement: ''
             },
-            // strip js comments
-            {
-              pattern: /\s+\/\/.*$/gm,
-              replacement: ''
-            },
-            // replace newlines w/ whitespace
-            {
+           {
               pattern: /\n/g,
               replacement: ' '
-            },
-            // strip html comments
-            {
-              pattern: /<!--[\s\S]*?-->/g,
-              replacement: ''
-            },
-            // collapse whitespace
+           },
+		   // collapse whitespace
             {
               pattern: /\s+/g,
               replacement: ' '
             }
-          ]
+            // leave html comments as these contain conditional statements
+		 ]
         }
-      }
+      },
+	  //we need to tell the init.js file to use our build dojo file rather than esri's init.js
+	  init: {
+		src: './src/init.js',
+        dest: './dist/init.js',
+        options: {
+          replacements: [
+            // remove a reference to init.js and replace with dojo.js
+            {
+              pattern: "resources.push(window.apiUrl + 'init.js');",
+              replacement: "resources.push(window.apiUrl + 'dojo/dojo.js');"
+            }
+			]
+		}
+	  },
+	  //just copy these files no need to edit
+	  simpleLoader: {
+		src: './src/simpleLoader.js',
+        dest: './dist/simpleLoader.js',
+	   },
+	  env: {
+		src: './src/env.js',
+        dest: './dist/env.js',
+	   },
+	  config: {
+		src: './src/config.json',
+        dest: './dist/config.json',
+	  },
+
     },
     // host files in a local web server
     connect: {
@@ -118,5 +136,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('slurp', ['clean:esri', 'esri_slurp:dev']);
   grunt.registerTask('build', ['clean:dist', 'dojo', 'string-replace']);
+  grunt.registerTask('buildroot', ['string-replace']);
 
 };

@@ -1,0 +1,1 @@
+define(['./AttributeTable/Widget'],function(){});

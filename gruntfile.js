@@ -51,6 +51,7 @@ module.exports = function (grunt) {
         basePath: './src'
       }
     },
+
     // this copies over index.html and replaces
     // the perl regexp section of build.sh in the dojo boilerplate
     'string-replace': {
@@ -117,4 +118,5 @@ module.exports = function (grunt) {
 
   grunt.registerTask('slurp', ['clean:esri', 'esri_slurp:dev']);
   grunt.registerTask('build', ['clean:dist', 'dojo', 'string-replace']);
+
 };

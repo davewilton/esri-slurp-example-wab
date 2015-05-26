@@ -36,14 +36,22 @@ var profile = {
   // build profile.
   packages: [
     // Using a string as a package is shorthand for `{ name: 'app', location: 'app' }`
-    'app',
+	{ name: 'jimu', location: 'jimu.js', destLocation: 'jimu.js', 
+	trees:[
+			[".", ".", /$^/]
+		] },
     'dgrid',
     'dijit',
     'dojo',
     'dojox',
     'esri',
     'put-selector',
-    'xstyle'
+    'xstyle',
+	'widgets',
+	'themes',
+	'libs',
+	'dynamic-modules',
+	'configs'
   ],
 
   // Build source map files to aid in debugging.
@@ -75,7 +83,7 @@ var profile = {
       customBase: true,
       include: [
         // include the app
-        'app/main',
+        //'ecl/main',
         // dpendencies of esri/map that will be requested if not included
         // probably in a nested require block or something the build script can't resolve
         'dojox/gfx/path',
@@ -85,18 +93,80 @@ var profile = {
 
         // be sure to include the layer types used in your web map
         // otherwise they will be requested asyncronously
-        'esri/map', 'esri/dijit/Search', 'esri/layers/FeatureLayer', 'esri/InfoTemplate', 'esri/SpatialReference', 'esri/geometry/Extent'
+		
+		//this is a list of everything required by the WAB on first load for a particular app
+		"dojo/_base/NodeList",
+		'esri/tasks/AddressCandidate', 
+		"esri/layers/ArcGISDynamicMapServiceLayer", 'esri/layers/FeatureLayer', "esri/layers/ArcGISImageServiceLayer", "esri/layers/ArcGISImageServiceVectorLayer", "esri/layers/CSVLayer", "esri/layers/DataSource", "esri/layers/DimensionalDefinition",
+		"esri/layers/DynamicLayerInfo", "esri/layers/DynamicMapServiceLayer", "esri/layers/GeoRSSLayer", "esri/layers/ImageParameters", "esri/layers/ImageServiceParameters", "esri/layers/KMLFolder", "esri/layers/KMLGroundOverlay", "esri/layers/KMLLayer",
+		"esri/layers/LayerDrawingOptions", "esri/layers/PurgeOptions", "esri/layers/WMSLayer", "esri/layers/WMSLayerInfo", "esri/layers/WebTiledLayer",
+		"esri/tasks/ImageServiceIdentifyParameters", "esri/tasks/ImageServiceIdentifyResult", "esri/tasks/ImageServiceIdentifyTask", "esri/layers/ImageServiceLayerMixin", "esri/layers/StreamLayer", "esri/layers/StreamTrackManager", "esri/virtualearth/VETiledLayer",
+		
+		"esri/SnappingManager",
+		"dojox/data/CsvStore",
+		"dijit/DropDownMenu",
+		"jimu/BaseWidget", "jimu/LayerInfos/LayerInfo", "jimu/LayerInfos/LayerInfos", "jimu/LayerInfos/LayerInfoForCollection", "jimu/LayerInfos/LayerInfoForDefault", "jimu/LayerInfos/LayerInfoForDefaultDynamic", "jimu/LayerInfos/LayerInfoForDefaultImage",
+		"jimu/LayerInfos/LayerInfoForDefaultService", "jimu/LayerInfos/LayerInfoForDefaultTable", "jimu/LayerInfos/LayerInfoForDefaultTile", "jimu/LayerInfos/LayerInfoForDefaultWMS", "jimu/LayerInfos/LayerInfoForGeoRSS", "jimu/LayerInfos/LayerInfoForGroup",
+		"jimu/LayerInfos/LayerInfoForKML", "jimu/LayerInfos/LayerInfoForMapService", "jimu/LayerInfos/LayerInfoForWMS"
+		"jimu/PoolControllerMixin", "jimu/dijit/ViewStack",
+        'esri/map', 'esri/dijit/Search', 'esri/InfoTemplate', 'esri/SpatialReference', 'esri/geometry/Extent'
 
       ],
-      includeLocales: ['en-us']
-    }//,
+      includeLocales: ['en-gb']
+    },
+	
+	'jimu/main': {
+		includeLocales: ['en-gb']
+	},
 
     // In this demo application, we load `app/main` on the client-side, so here we could build a separate layer containing
     // that code. (Practically speaking, you probably just want to roll everything into the `dojo/dojo` layer,
     // but this helps provide a basic illustration of how multi-layer builds work.) Note that when you create a new
     // layer, the module referenced by the layer is always included in the layer (in this case, `app/main`), so it
     // does not need to be explicitly defined in the `include` array.
-    // 'app/main': {}
+     'widgets/AttributeTable/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/LayerList/Widget': {
+	 exclude:[ 'dojo/dojo', "jimu/main", "jimu/BaseWidget"],
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/Coordinate/Widget': {
+	 },
+	 'widgets/Draw/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/Geocoder/Widget': {
+		includeLocales: ['en-us']
+	 },
+	 'widgets/HomeButton/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/LayerList/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/Legend/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/MyLocation/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/OverviewMap/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/Scalebar/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/Splash/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/Swipe/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/TimeSlider/Widget': {
+		includeLocales: ['en-gb']
+	 },
+
   },
 
   // Providing hints to the build system allows code to be conditionally removed on a more granular level than simple

@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"main.js",
+"lineCount":2,
+"mappings":"A;AAAAA,OAAA,SACA,cADA,CACeC,QAAAA,GACfC,MAAA,IAAU,QAAA,IAAV,CADeD,CADf,GAIAC,OAAA;",
+"sources":["main.js.uncompressed.js"],
+"names":["require","widgets/main","define"]
+}

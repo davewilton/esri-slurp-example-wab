@@ -1,6 +1,8 @@
-#esri-slurp-example
+#esri-slurp-example-wab
 
-The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp). The build profile and grunt configuration draw heavily from the [AGRC JavaScript Project Boilerplate](https://github.com/agrc/AGRCJavaScriptProjectBoilerPlate), which is itself based on the [Dojo Boilerplate](https://github.com/csnover/dojo-boilerplate). However, the configurations in this repo are pared down to demonstrate only what is necessary to create a custom Dojo build of a simple "app" featuring an Esri map (based on the [Create a map sample page](https://developers.arcgis.com/javascript/jssamples/map_simple.html)).
+#IN PROGRESS
+
+The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) along with a build profile which will work with a simple Web App Builder Application
 
 ##Instructions
 You must have [Node.js](http://nodejs.org/) installed as well as the [Grunt CLI](http://gruntjs.com/getting-started) prior to running the steps below.

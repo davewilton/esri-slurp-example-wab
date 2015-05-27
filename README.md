@@ -72,4 +72,5 @@ grunt clean:stripped
 - [ArcGIS API for JavaScript Compact Build](https://developers.arcgis.com/javascript/jshelp/inside_compactbuild.html)
 
 ##Credit
-There's nothging new here. The hard work has already been done by the estimable [@steveoh](https://github.com/steveoh) and [@stdavis](https://github.com/stdavis). This is just an attempt to make the great work that they've already done a bit more approachable (even though [they mock me](https://github.com/tomwayson/esri-slurp-example/issues/2#issuecomment-55122452)).
+
+This repo is forked from [@Tomwayson](https://github.com/tomwayson/esri-slurp-example) slurp example which built upon the work of [@steveoh](https://github.com/steveoh) and [@stdavis](https://github.com/stdavis).

@@ -36,10 +36,7 @@ var profile = {
   // build profile.
   packages: [
     // Using a string as a package is shorthand for `{ name: 'app', location: 'app' }`
-	{ name: 'jimu', location: 'jimu.js', destLocation: 'jimu.js', 
-	trees:[
-			[".", ".", /$^/]
-		] },
+	{ name: 'jimu', location: 'jimu.js', destLocation: 'jimu.js'},
     'dgrid',
     'dijit',
     'dojo',
@@ -95,7 +92,7 @@ var profile = {
         // otherwise they will be requested asyncronously
 		
 		//this is a list of everything required by the WAB on first load for a particular app
-		"dojo/_base/NodeList",
+		"dojo/_base/NodeList", "dojo/_base/browser",
 		'esri/tasks/AddressCandidate', 
 		"esri/layers/ArcGISDynamicMapServiceLayer", 'esri/layers/FeatureLayer', "esri/layers/ArcGISImageServiceLayer", "esri/layers/ArcGISImageServiceVectorLayer", "esri/layers/CSVLayer", "esri/layers/DataSource", "esri/layers/DimensionalDefinition",
 		"esri/layers/DynamicLayerInfo", "esri/layers/DynamicMapServiceLayer", "esri/layers/GeoRSSLayer", "esri/layers/ImageParameters", "esri/layers/ImageServiceParameters", "esri/layers/KMLFolder", "esri/layers/KMLGroundOverlay", "esri/layers/KMLLayer",

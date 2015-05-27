@@ -39,7 +39,7 @@ Then browse to `http://localhost:9000/` and verify that it
  works. You can inspect the network traffic to verify that the build version of the app requests fewer and smaller scripts (see below).
 
 ##Comparing the Built App
-In order to determine if our build improves the user experience, we need to verify that the built page makes fewer script requests and that the size of the scripts requested is smaller when compared to similar pages that reference the [standard and compact CDN hosted builds of the API](https://developers.arcgis.com/javascript/jshelp/inside_compactbuild.html). The "app" in this example is a simple web app builder application. It is included uncompressed as the scr web app.
+In order to determine if our build improves the user experience, we need to verify that the built page makes fewer script requests. The "app" in this example is a simple web app builder application. It is included uncompressed as the scr web app.
 
 Due to the way the WAB is strucured using esri's basewidget it is not possible to embed the nls strings so at present the number of requests is reduced to 16 rather than 1
 

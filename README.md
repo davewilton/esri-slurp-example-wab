@@ -2,7 +2,7 @@
 
 #IN PROGRESS
 
-The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) along with a build profile which will work with a simple Web App Builder Application. The aim is not to modify the WAB source code at all.
+The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) along with a build profile which will work with a simple Web App Builder Application. The aim is not to modify the WAB source code at all. This repo is forked from [@Tomwayson](https://github.com/tomwayson/esri-slurp-example) slurp example (see credits)
 
 ##Instructions
 You must have [Node.js](http://nodejs.org/), [Bower.io](http://bower.io/) and the [Grunt CLI](http://gruntjs.com/getting-started) prior to running the steps below.
@@ -41,9 +41,9 @@ Then browse to `http://localhost:9000/` and verify that it
  works. You can inspect the network traffic to verify that the build version of the app requests fewer and smaller scripts (see below).
 
 ##Comparing the Built App
-In order to determine if our build improves the user experience, we need to verify that the built page makes fewer script requests and that the size of the scripts requested is smaller when compared to similar pages that reference the [standard and compact CDN hosted builds of the API](https://developers.arcgis.com/javascript/jshelp/inside_compactbuild.html). The "app" in this example is a simple web app builder application. It is included as the scr web app.
+In order to determine if our build improves the user experience, we need to verify that the built page makes fewer script requests and that the size of the scripts requested is smaller when compared to similar pages that reference the [standard and compact CDN hosted builds of the API](https://developers.arcgis.com/javascript/jshelp/inside_compactbuild.html). The "app" in this example is a simple web app builder application. It is included uncompressed as the scr web app.
 
-Each of the wigets has been built as individual layers. These could be added to the main dojo.js file to reduce the number of requests further. Due to the way the WAB is strucured using esri's basewidget it is not possible to 
+Due to the way the WAB is strucured using esri's basewidget it is not possible to embed the nls strings so at present the number of requests is reduced to 16 rather than 1
 
 Page | JS Requests | JS KB (gzipped) | JS KB (uncompressed)
 ------ | ----------------- | ------------- | --------------- | ---------------

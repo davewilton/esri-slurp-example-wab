@@ -50,6 +50,8 @@ Page | JS Requests | JS KB (gzipped) | JS KB (uncompressed)
 src/index.html (source app) | 455 | ? |  3800 
 dist/index.html (built app) | 16 |  619 | 1600 
 
+![alt tag](https://raw.githubusercontent.com/davewilton/esri-slurp-example-wab/master/comparison.png)
+
 However, **your mileage may vary and there are many factors to consider when deciding whether or not it is worth while to do a Dojo build.** If your code is small and/or does not reference a lot of modules that are not already included in one of the CDN builds, a local build may not help that much. Conversely, when creating applications with many modules, you should see significant improvements over the CDN builds in most cases.
 
 ## Reducing the Size (on Disk) of Build Output

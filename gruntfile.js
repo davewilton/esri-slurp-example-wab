@@ -88,6 +88,11 @@ module.exports = function (grunt) {
             {
               pattern: "resources.push(window.apiUrl + 'init.js');",
               replacement: "resources.push(window.apiUrl + 'dojo/dojo.js');"
+            },
+            //todo: need to remove this line and come up with something better.
+            {
+              pattern: "var scr = true",
+              replacement: "var scr = false" 
             }
 			]
 		}

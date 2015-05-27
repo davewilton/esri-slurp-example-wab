@@ -90,9 +90,9 @@ var ie = (function() {
       window.apiUrl + 'dojox/layout/resources/ResizeHandle.css',
       window.path + 'jimu.js/css/jimu.css'
     ]);
-
+    var scr = true; //todo. need to work out a better way to send it via this path unbuiild
     if (window.apiUrl.substr(window.apiUrl.length - 'arcgis-js-api/'.length,
-      'arcgis-js-api/'.length) === 'arcgis-js-api/') {
+      'arcgis-js-api/'.length) === 'arcgis-js-api/' || scr == true) {
       //after build, we put js api here
       //user can also download release api package and put here
       dojoConfig.baseUrl = window.path;
@@ -134,7 +134,7 @@ var ie = (function() {
         location: "dynamic-modules"
       }];
 
-      resources.push(window.apiUrl + '/dojo/dojo.js');
+      resources.push('/dojo/dojo.js');
     } else {
       dojoConfig.baseUrl = window.apiUrl + 'dojo';
       dojoConfig.packages = [{

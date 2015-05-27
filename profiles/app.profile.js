@@ -107,7 +107,7 @@ var profile = {
 		"dijit/DropDownMenu",
 		"jimu/BaseWidget", "jimu/LayerInfos/LayerInfo", "jimu/LayerInfos/LayerInfos", "jimu/LayerInfos/LayerInfoForCollection", "jimu/LayerInfos/LayerInfoForDefault", "jimu/LayerInfos/LayerInfoForDefaultDynamic", "jimu/LayerInfos/LayerInfoForDefaultImage",
 		"jimu/LayerInfos/LayerInfoForDefaultService", "jimu/LayerInfos/LayerInfoForDefaultTable", "jimu/LayerInfos/LayerInfoForDefaultTile", "jimu/LayerInfos/LayerInfoForDefaultWMS", "jimu/LayerInfos/LayerInfoForGeoRSS", "jimu/LayerInfos/LayerInfoForGroup",
-		"jimu/LayerInfos/LayerInfoForKML", "jimu/LayerInfos/LayerInfoForMapService", "jimu/LayerInfos/LayerInfoForWMS"
+		"jimu/LayerInfos/LayerInfoForKML", "jimu/LayerInfos/LayerInfoForMapService", "jimu/LayerInfos/LayerInfoForWMS",
 		"jimu/PoolControllerMixin", "jimu/dijit/ViewStack",
         'esri/map', 'esri/dijit/Search', 'esri/InfoTemplate', 'esri/SpatialReference', 'esri/geometry/Extent'
 
@@ -125,10 +125,6 @@ var profile = {
     // layer, the module referenced by the layer is always included in the layer (in this case, `app/main`), so it
     // does not need to be explicitly defined in the `include` array.
      'widgets/AttributeTable/Widget': {
-		includeLocales: ['en-gb']
-	 },
-	 'widgets/LayerList/Widget': {
-	 exclude:[ 'dojo/dojo', "jimu/main", "jimu/BaseWidget"],
 		includeLocales: ['en-gb']
 	 },
 	 'widgets/Coordinate/Widget': {

@@ -45,7 +45,7 @@ In order to determine if our build improves the user experience, we need to veri
 
 Each of the wigets has been built as individual layers. These could be added to the main dojo.js file to reduce the number of requests further. Due to the way the WAB is strucured using esri's basewidget it is not possible to 
 
-Page | JS Requests | JS KN (gzipped) | JS KB (uncompressed)
+Page | JS Requests | JS KB (gzipped) | JS KB (uncompressed)
 ------ | ----------------- | ------------- | --------------- | ---------------
 src/index.html (source app) | 455 | ? |  3800 
 dist/index.html (built app) | 16 |  619 | 1600 

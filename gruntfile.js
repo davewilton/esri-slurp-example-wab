@@ -112,6 +112,7 @@ module.exports = function (grunt) {
 	  },
 
     },
+	
     // host files in a local web server
     connect: {
       options: {
@@ -138,6 +139,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-dojo');
   grunt.loadNpmTasks('grunt-string-replace');
+
 
   grunt.registerTask('slurp', ['clean:esri', 'esri_slurp:dev']);
   grunt.registerTask('build', ['clean:dist', 'dojo', 'string-replace']);

@@ -79,7 +79,8 @@ var profile = {
       boot: true,
       customBase: true,
       include: [
-     
+        // include the app
+        //'ecl/main',
         // dpendencies of esri/map that will be requested if not included
         // probably in a nested require block or something the build script can't resolve
         'dojox/gfx/path',
@@ -87,27 +88,25 @@ var profile = {
         'dojox/gfx/shape',
         'esri/dijit/Attribution',
 
+        // be sure to include the layer types used in your web map
+        // otherwise they will be requested asyncronously
 		
-		//Below is a list of everything required by the WAB on first load for a particular app
+		//this is a list of everything required by the WAB on first load for a particular app
 		"dojo/_base/NodeList", "dojo/_base/browser",
-		//WAB seems to load all of the layer types by default
+		'esri/tasks/AddressCandidate', 
 		"esri/layers/ArcGISDynamicMapServiceLayer", 'esri/layers/FeatureLayer', "esri/layers/ArcGISImageServiceLayer", "esri/layers/ArcGISImageServiceVectorLayer", "esri/layers/CSVLayer", "esri/layers/DataSource", "esri/layers/DimensionalDefinition",
 		"esri/layers/DynamicLayerInfo", "esri/layers/DynamicMapServiceLayer", "esri/layers/GeoRSSLayer", "esri/layers/ImageParameters", "esri/layers/ImageServiceParameters", "esri/layers/KMLFolder", "esri/layers/KMLGroundOverlay", "esri/layers/KMLLayer",
 		"esri/layers/LayerDrawingOptions", "esri/layers/PurgeOptions", "esri/layers/WMSLayer", "esri/layers/WMSLayerInfo", "esri/layers/WebTiledLayer",
-		'esri/tasks/AddressCandidate', "esri/tasks/ImageServiceIdentifyParameters", "esri/tasks/ImageServiceIdentifyResult", "esri/tasks/ImageServiceIdentifyTask", "esri/layers/ImageServiceLayerMixin", "esri/layers/StreamLayer", "esri/layers/StreamTrackManager", "esri/virtualearth/VETiledLayer",
-		"esri/map", 'esri/dijit/Search', 'esri/InfoTemplate', 'esri/SpatialReference', 'esri/geometry/Extent',  "esri/SnappingManager",
+		"esri/tasks/ImageServiceIdentifyParameters", "esri/tasks/ImageServiceIdentifyResult", "esri/tasks/ImageServiceIdentifyTask", "esri/layers/ImageServiceLayerMixin", "esri/layers/StreamLayer", "esri/layers/StreamTrackManager", "esri/virtualearth/VETiledLayer",
+		
+		"esri/SnappingManager",
 		"dojox/data/CsvStore",
 		"dijit/DropDownMenu",
-		"libs/storejs/store", "libs/storejs/json",
-		"dynamic-modules/preload", "dynamic-modules/postload",
-		"xstyle/load-css",
 		"jimu/BaseWidget", "jimu/LayerInfos/LayerInfo", "jimu/LayerInfos/LayerInfos", "jimu/LayerInfos/LayerInfoForCollection", "jimu/LayerInfos/LayerInfoForDefault", "jimu/LayerInfos/LayerInfoForDefaultDynamic", "jimu/LayerInfos/LayerInfoForDefaultImage",
 		"jimu/LayerInfos/LayerInfoForDefaultService", "jimu/LayerInfos/LayerInfoForDefaultTable", "jimu/LayerInfos/LayerInfoForDefaultTile", "jimu/LayerInfos/LayerInfoForDefaultWMS", "jimu/LayerInfos/LayerInfoForGeoRSS", "jimu/LayerInfos/LayerInfoForGroup",
 		"jimu/LayerInfos/LayerInfoForKML", "jimu/LayerInfos/LayerInfoForMapService", "jimu/LayerInfos/LayerInfoForWMS",
 		"jimu/PoolControllerMixin", "jimu/dijit/ViewStack",
-		//these are all of the widgets loaded on startup. These will change based upon how you configure your app within the WAB
-		"themes/FoldableTheme/widgets/HeaderController/Widget", "widgets/Scalebar/Widget", "esri/dijit/Geocoder", "widgets/Coordinate/Widget", "widgets/OverviewMap/Widget","widgets/HomeButton/Widget",  "widgets/MyLocation/Widget", "widgets/AttributeTable/Widget",
-		"widgets/Geocoder/Widget"
+        'esri/map', 'esri/dijit/Search', 'esri/InfoTemplate', 'esri/SpatialReference', 'esri/geometry/Extent'
 
       ],
       includeLocales: ['en-gb']
@@ -117,9 +116,48 @@ var profile = {
 		includeLocales: ['en-gb']
 	},
 
-    // In this demo application each of the on screen widgets (just the draw tool in this case) have been packaged separately and will only be loaded when the user requests them
+    // In this demo application, we load `app/main` on the client-side, so here we could build a separate layer containing
+    // that code. (Practically speaking, you probably just want to roll everything into the `dojo/dojo` layer,
+    // but this helps provide a basic illustration of how multi-layer builds work.) Note that when you create a new
+    // layer, the module referenced by the layer is always included in the layer (in this case, `app/main`), so it
+    // does not need to be explicitly defined in the `include` array.
+     'widgets/AttributeTable/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/Coordinate/Widget': {
+	 },
 	 'widgets/Draw/Widget': {
-		includeLocales: ['en-gb'] //due to the way the WAB loads nls this will not embed the strings. 
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/Geocoder/Widget': {
+		includeLocales: ['en-us']
+	 },
+	 'widgets/HomeButton/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/LayerList/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/Legend/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/MyLocation/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/OverviewMap/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/Scalebar/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/Splash/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	  'widgets/Swipe/Widget': {
+		includeLocales: ['en-gb']
+	 },
+	 'widgets/TimeSlider/Widget': {
+		includeLocales: ['en-gb']
 	 },
 
   },

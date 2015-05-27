@@ -2,7 +2,7 @@
 
 #IN PROGRESS
 
-The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) along with a build profile which will work with a simple Web App Builder Application
+The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) along with a build profile which will work with a simple Web App Builder Application. The aim is not to modify the WAB source code at all.
 
 ##Instructions
 You must have [Node.js](http://nodejs.org/) installed as well as the [Grunt CLI](http://gruntjs.com/getting-started) prior to running the steps below.
@@ -41,13 +41,14 @@ Then browse to `http://localhost:9000/` and verify that it
  works. You can inspect the network traffic to verify that the build version of the app requests fewer and smaller scripts (see below).
 
 ##Comparing the Built App
-In order to determine if our build improves the user experience, we need to verify that the built page makes fewer script requests and that the size of the scripts requested is smaller when compared to similar pages that reference the [standard and compact CDN hosted builds of the API](https://developers.arcgis.com/javascript/jshelp/inside_compactbuild.html). The "app" in this example is based on the [Search multiple sources sample page](https://developers.arcgis.com/javascript/jssamples/search_multiplesources.html), and for convenience, this repo includes a copy of that page as well as a copy that uses the compact build (under the `samples` folder). I've compiled a comparison of the file requests and sizes between the different builds below.
+In order to determine if our build improves the user experience, we need to verify that the built page makes fewer script requests and that the size of the scripts requested is smaller when compared to similar pages that reference the [standard and compact CDN hosted builds of the API](https://developers.arcgis.com/javascript/jshelp/inside_compactbuild.html). The "app" in this example is a simple web app builder application. It is included as the scr web app.
 
-Page | JS Requests | JS KB (gzipped) | JS KB (uncompressed)
+Each of the wigets has been built as individual layers. These could be added to the main dojo.js file to reduce the number of requests further. Due to the way the WAB is strucured using esri's basewidget it is not possible to 
+
+Page | JS Requests | JS KN (gzipped) | JS KB (uncompressed)
 ------ | ----------------- | ------------- | --------------- | ---------------
-dist/index.html (built app) | 1 | 304 | 792
-samples/search_multiplesources_compact.html | 23 | 348 | 850
-samples/search_multiplesources.html | 7 | 431 | 1091
+src/index.html (source app) | 455 | ? |  3800 
+dist/index.html (built app) | 16 |  619 | 1600 
 
 However, **your mileage may vary and there are many factors to consider when deciding whether or not it is worth while to do a Dojo build.** If your code is small and/or does not reference a lot of modules that are not already included in one of the CDN builds, a local build may not help that much. Conversely, when creating applications with many modules, you should see significant improvements over the CDN builds in most cases.
 

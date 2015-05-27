@@ -1,8 +1,6 @@
 #esri-slurp-example-wab
 
-#IN PROGRESS
-
-The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) along with a build profile which will work with a simple Web App Builder Application. The aim is not to modify the WAB source code at all. This repo is forked from [@Tomwayson](https://github.com/tomwayson/esri-slurp-example) slurp example (see credits)
+The purpose of this repo is to show how to perform a Dojo build with an ESRI Web App Builder Application.  Esri JSAPI source code is downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) and is used along side a build profile which will work with a simple Web App Builder Application. This repo is forked from [@Tomwayson](https://github.com/tomwayson/esri-slurp-example) slurp example (see credits)
 
 ##Instructions
 You must have [Node.js](http://nodejs.org/), [Bower.io](http://bower.io/) and the [Grunt CLI](http://gruntjs.com/getting-started) prior to running the steps below.

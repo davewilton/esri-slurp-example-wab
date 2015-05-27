@@ -5,7 +5,7 @@
 The purpose of this repo is to show how to do a Dojo build with Esri JSAPI source code downloaded using [grunt-esri-slurp](https://www.npmjs.org/package/grunt-esri-slurp) along with a build profile which will work with a simple Web App Builder Application. The aim is not to modify the WAB source code at all.
 
 ##Instructions
-You must have [Node.js](http://nodejs.org/) installed as well as the [Grunt CLI](http://gruntjs.com/getting-started) prior to running the steps below.
+You must have [Node.js](http://nodejs.org/), [Bower.io](http://bower.io/) and the [Grunt CLI](http://gruntjs.com/getting-started) prior to running the steps below.
 
 Install Grunt tasks with npm:
 ```bash

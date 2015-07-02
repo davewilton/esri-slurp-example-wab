@@ -6,7 +6,7 @@ var profile = {
   // `basePath` is relative to the directory containing this profile file; in this case, it is being set to the
   // src/ directory, which is the same place as the `baseUrl` directory in the loader configuration. (If you change
   // this, you will also need to update run.js.)
-  basePath: '../src/',
+  basePath: '../src',
 
   // This is the directory within the release directory where built packages will be placed. The release directory
   // itself is defined by `build.sh`. You should probably not use this; it is a legacy option dating back to Dojo
@@ -37,13 +37,13 @@ var profile = {
   packages: [
     // Using a string as a package is shorthand for `{ name: 'app', location: 'app' }`
 	{ name: 'jimu', location: 'jimu.js', destLocation: 'jimu.js'},
-    'dgrid',
-    'dijit',
-    'dojo',
-    'dojox',
-    'esri',
-    'put-selector',
-    'xstyle',
+	{ name: 'dgrid', location: 'arcgis-js-api/dgrid', destLocation: 'arcgis-js-api/dgrid'},
+	{ name: 'dijit', location: 'arcgis-js-api/dijit', destLocation: 'arcgis-js-api/dijit'},
+	{ name: 'dojo', location: 'arcgis-js-api/dojo', destLocation: 'arcgis-js-api/dojo'},
+	{ name: 'dojox', location: 'arcgis-js-api/dojox', destLocation: 'arcgis-js-api/dojox'},
+	{ name: 'esri', location: 'arcgis-js-api/esri', destLocation: 'arcgis-js-api/esri'},
+	{ name: 'put-selector', location: 'arcgis-js-api/put-selector', destLocation: 'arcgis-js-api/put-selector'},
+	{ name: 'xstyle', location: 'arcgis-js-api/xstyle', destLocation: 'arcgis-js-api/xstyle'},
 	'widgets',
 	'themes',
 	'libs',

@@ -1,0 +1,6 @@
+//>>built
+define(["dojo/_base/declare", "dojo/_base/lang", "dojo/has", "../../../../base/Descriptor", "../../../../form/Tabs", "../../../../form/iso/AbstractObject", "../../../../form/iso/ObjectReference", "../citation/ResourceCitation", "../citation/ResourceContact", "../constraints/ResourceConstraints", "./ResourceDescription", "./ResourceThumbnail", "./ResourceKeywords", "./DataResourceTab", "dojo/text!./templates/DataIdentification.html", "../../../../../../kernel"], function(a, d, e, b, f, g, h, k, l, m, n, p, q, r, c, s) {
+    return a(b, {
+        templateString: c
+    })
+});

@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         }
       },
       options: {
-        dojo: 'src/dojo/dojo.js', // Path to dojo.js file in dojo source
+        dojo: 'src/arcgis-js-api/dojo/dojo.js', // Path to dojo.js file in dojo source
         load: 'build', // Optional: Utility to bootstrap (Default: 'build')
         // profiles: [], // Optional: Array of Profiles for build
         // appConfigFile: '', // Optional: Config file for dojox/app
@@ -78,26 +78,10 @@ module.exports = function (grunt) {
 		 ]
         }
       },
-	  //we need to tell the init.js file to use our build dojo file rather than esri's init.js
 	  init: {
 		src: './src/init.js',
         dest: './dist/init.js',
-        options: {
-          replacements: [
-            // remove a reference to init.js and replace with dojo.js
-            {
-              pattern: "resources.push(window.apiUrl + 'init.js');",
-              replacement: "resources.push(window.apiUrl + 'dojo/dojo.js');"
-            },
-            //todo: need to remove this line and come up with something better.
-            {
-              pattern: "var scr = true",
-              replacement: "var scr = false" 
-            }
-			]
-		}
-	  },
-	  //just copy these files no need to edit
+	   },
 	  simpleLoader: {
 		src: './src/simpleLoader.js',
         dest: './dist/simpleLoader.js',

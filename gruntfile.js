@@ -31,7 +31,7 @@ module.exports = function (grunt) {
 	execute: {
         dojoBuild: {
             // execute javascript files in a node child_process 
-            src: ['src/arcgis-js-api/dojo/dojo.js'], // Path to dojo.js file in dojo source']
+            src: ['src/dojo/dojo.js'], // Path to dojo.js file in dojo source']
 			cwd: './', // Directory to execute build within
 			options: {
 				args: [ 'load=build', '--profile', 'profiles\\app.profile.js', 'releaseDir=../dist']

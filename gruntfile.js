@@ -26,31 +26,18 @@ module.exports = function (grunt) {
       // remove console stripped files from dist
       stripped: ['dist/**/*.consoleStripped.js']
     },
-    // dojo build configuration, mainly taken from dojo boilerplate
-    dojo: {
-      dist: {
-        options: {
-          profile: 'profiles/app.profile.js', // Profile for build
+	// dojo build configuration, mainly taken from dojo boilerplate
+	execute: {
+        dojoBuild: {
+            // execute javascript files in a node child_process 
+            src: ['src/arcgis-js-api/dojo/dojo.js'], // Path to dojo.js file in dojo source']
+			cwd: './', // Directory to execute build within
+			options: {
+				args: [ 'load=build', '--profile', 'profiles\\app.profile.js', 'releaseDir=../dist']
+				} 
         }
-      },
-      options: {
-        dojo: 'src/dojo/dojo.js', // Path to dojo.js file in dojo source
-        load: 'build', // Optional: Utility to bootstrap (Default: 'build')
-        // profiles: [], // Optional: Array of Profiles for build
-        // appConfigFile: '', // Optional: Config file for dojox/app
-        // package: '', // Optional: Location to search package.json (Default: nothing)
-        // packages: [], // Optional: Array of locations of package.json (Default: nothing)
-        // require: '', // Optional: Module to require for the build (Default: nothing)
-        // requires: [], // Optional: Array of modules to require for the build (Default: nothing)
-        releaseDir: '../dist', // Optional: release dir rel to basePath (Default: 'release')
-        cwd: './', // Directory to execute build within
-        // dojoConfig: '', // Optional: Location of dojoConfig (Default: null),
-        // Optional: Base Path to pass at the command line
-        // Takes precedence over other basePaths
-        // Default: null
-        basePath: './src'
-      }
-    },
+	},
+
     // this copies over index.html and replaces
     // the perl regexp section of build.sh in the dojo boilerplate
     'string-replace': {
@@ -114,7 +101,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-dojo');
   grunt.loadNpmTasks('grunt-string-replace');
+  grunt.loadNpmTasks('grunt-execute');
 
   grunt.registerTask('slurp', ['clean:esri', 'esri_slurp:dev']);
-  grunt.registerTask('build', ['clean:dist', 'dojo', 'string-replace']);
+  grunt.registerTask('build', ['clean:dist', 'execute:dojoBuild', 'string-replace']);
 };

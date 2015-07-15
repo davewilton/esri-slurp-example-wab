@@ -26,6 +26,19 @@ module.exports = function (grunt) {
       // remove console stripped files from dist
       stripped: ['dist/**/*.consoleStripped.js']
     },
+	
+	
+	execute: {
+        dojoBuild: {
+            // execute javascript files in a node child_process 
+            src: ['src/arcgis-js-api/dojo/dojo.js'], // Path to dojo.js file in dojo source']
+			cwd: './', // Directory to execute build within
+			options: {
+				args: [ 'load=build', '--profile', 'profiles\\app.profile.js', 'releaseDir=../dist']
+				} 
+        }
+	},
+	
     // dojo build configuration, mainly taken from dojo boilerplate
     dojo: {
       dist: {
@@ -123,10 +136,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-dojo');
   grunt.loadNpmTasks('grunt-string-replace');
+    grunt.loadNpmTasks('grunt-execute');
 
 
   grunt.registerTask('slurp', ['clean:esri', 'esri_slurp:dev']);
-  grunt.registerTask('build', ['clean:dist', 'dojo', 'string-replace']);
+  grunt.registerTask('build', ['clean:dist', 'execute:dojoBuild', 'string-replace']);
   grunt.registerTask('buildroot', ['string-replace']);
 
 };

@@ -124,10 +124,7 @@ var ie = (function () {
             }, {
                 name: "dynamic-modules",
                 location: "dynamic-modules"
-            }, {
-                name: "ecl",
-                location: "libs/ecl.js"
-        }];
+            }];
 
             resources.push(window.apiUrl + '/dojo/dojo.js');
         } else {
@@ -150,10 +147,7 @@ var ie = (function () {
             }, {
                 name: "configs",
                 location: window.path + "configs"
-            }, {
-                name: "ecl",
-                location: window.path + "libs/ecl.js"
-        }];
+            }];
 
             resources.push(window.apiUrl + 'init.js');
         }

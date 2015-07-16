@@ -80,47 +80,40 @@ var profile = {
       customBase: true,
       include: [
      
-        // dpendencies of esri/map that will be requested if not included
+          // dpendencies of esri/map/wab that will be requested if not included
         // probably in a nested require block or something the build script can't resolve
         'dojox/gfx/path',
         'dojox/gfx/svg',
         'dojox/gfx/shape',
         'esri/dijit/Attribution',
+		"dojo/NodeList-manipulate",
+		"esri/SnappingManager",
+		"xstyle/load-css",
 
 		
-		//Below is a list of everything required by the WAB on first load for a particular app
-		"dojo/_base/NodeList", "dojo/_base/browser",
-		//WAB seems to load all of the layer types by default
+		//all of the layer types are loaded in the map by default
 		"esri/layers/ArcGISDynamicMapServiceLayer", 'esri/layers/FeatureLayer', "esri/layers/ArcGISImageServiceLayer", "esri/layers/ArcGISImageServiceVectorLayer", "esri/layers/CSVLayer", "esri/layers/DataSource", "esri/layers/DimensionalDefinition",
 		"esri/layers/DynamicLayerInfo", "esri/layers/DynamicMapServiceLayer", "esri/layers/GeoRSSLayer", "esri/layers/ImageParameters", "esri/layers/ImageServiceParameters", "esri/layers/KMLFolder", "esri/layers/KMLGroundOverlay", "esri/layers/KMLLayer",
-		"esri/layers/LayerDrawingOptions", "esri/layers/PurgeOptions", "esri/layers/WMSLayer", "esri/layers/WMSLayerInfo", "esri/layers/WebTiledLayer",
-		'esri/tasks/AddressCandidate', "esri/tasks/ImageServiceIdentifyParameters", "esri/tasks/ImageServiceIdentifyResult", "esri/tasks/ImageServiceIdentifyTask", "esri/layers/ImageServiceLayerMixin", "esri/layers/StreamLayer", "esri/layers/StreamTrackManager", "esri/virtualearth/VETiledLayer",
-		"esri/map", 'esri/dijit/Search', 'esri/InfoTemplate', 'esri/SpatialReference', 'esri/geometry/Extent',  "esri/SnappingManager",
-		"dojox/data/CsvStore",
-		"dijit/DropDownMenu",
-		"libs/storejs/store", "libs/storejs/json",
-		"dynamic-modules/preload", "dynamic-modules/postload",
-		"xstyle/load-css",
-		"jimu/BaseWidget", "jimu/LayerInfos/LayerInfo", "jimu/LayerInfos/LayerInfos", "jimu/LayerInfos/LayerInfoForCollection", "jimu/LayerInfos/LayerInfoForDefault", "jimu/LayerInfos/LayerInfoForDefaultDynamic", "jimu/LayerInfos/LayerInfoForDefaultImage",
+		"esri/layers/LayerDrawingOptions", "esri/layers/PurgeOptions", "esri/layers/WMSLayer", "esri/layers/WMSLayerInfo", "esri/layers/WebTiledLayer", "esri/layers/StreamTrackManager", "esri/layers/StreamLayer",
+		//Layer infos these are all embeded as a dynamic require within the layerInfoFactory
+		"jimu/LayerInfos/LayerInfo", "jimu/LayerInfos/LayerInfos", "jimu/LayerInfos/LayerInfoForCollection", "jimu/LayerInfos/LayerInfoForDefault", "jimu/LayerInfos/LayerInfoForDefaultDynamic", "jimu/LayerInfos/LayerInfoForDefaultImage",
 		"jimu/LayerInfos/LayerInfoForDefaultService", "jimu/LayerInfos/LayerInfoForDefaultTable", "jimu/LayerInfos/LayerInfoForDefaultTile", "jimu/LayerInfos/LayerInfoForDefaultWMS", "jimu/LayerInfos/LayerInfoForGeoRSS", "jimu/LayerInfos/LayerInfoForGroup",
 		"jimu/LayerInfos/LayerInfoForKML", "jimu/LayerInfos/LayerInfoForMapService", "jimu/LayerInfos/LayerInfoForWMS",
-		"jimu/PoolControllerMixin", "jimu/dijit/ViewStack",
-		//these are all of the widgets loaded on startup. These will change based upon how you configure your app within the WAB
-		"themes/FoldableTheme/widgets/HeaderController/Widget", "widgets/Scalebar/Widget", "esri/dijit/Geocoder", "widgets/Coordinate/Widget", "widgets/OverviewMap/Widget","widgets/HomeButton/Widget",  "widgets/MyLocation/Widget", "widgets/AttributeTable/Widget",
-		"widgets/Geocoder/Widget"
-
+		
+		//other WAB items which appea to be dynamic/nested
+		"jimu/PoolControllerMixin",  "jimu/dijit/ViewStack",
+		
+		//these are all of the layers we want embedded into the main dojo layer.
+		"widgets/main", //you must list all the widgets you are using within this file
+		"jimu/main",
+		"libs/main",
+		"themes/FoldableTheme/main",
+		
+		//required by theme.
+		"themes/FoldableTheme/widgets/HeaderController/Widget", "themes/FoldableTheme/widgets/HeaderController/PopupTileNodes"
       ],
       includeLocales: ['en-gb']
-    },
-	
-	'jimu/main': {
-		includeLocales: ['en-gb']
-	},
-
-    // In this demo application each of the on screen widgets (just the draw tool in this case) have been packaged separately and will only be loaded when the user requests them
-	 'widgets/Draw/Widget': {
-		includeLocales: ['en-gb'] //due to the way the WAB loads nls this will not embed the strings. 
-	 },
+    }
 
   },
 
